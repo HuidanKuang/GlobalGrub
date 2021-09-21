@@ -12,10 +12,10 @@ namespace GlobalGrub.Models
         //property names should always use PascalCase
 
         [Range(0,999999)]
-
-        [Required(AllowEmptyStrings = false,ErrorMessage = "And no empty strings!")]
         [Display(Name = "Category Id")] //this set an alias for all labels globally
         public int CategoryId { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "And no empty strings!")]
         public string Name { get; set; }
     }
 }
