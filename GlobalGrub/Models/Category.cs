@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,6 +10,11 @@ namespace GlobalGrub.Models
     {
         //all pk fields in asp.net mvc should be called either {Model}Id or Id
         //property names should always use PascalCase
+
+        [Range(0,999999)]
+
+        [Required(AllowEmptyStrings = false,ErrorMessage = "And no empty strings!")]
+        [Display(Name = "Category Id")] //this set an alias for all labels globally
         public int CategoryId { get; set; }
         public string Name { get; set; }
     }
