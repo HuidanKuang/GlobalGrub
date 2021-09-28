@@ -45,8 +45,7 @@ namespace GlobalGrub.Models
 
         public string PaymentCode { get; set; }
 
-
-        //child
+        // child ref
         public List<OrderItem> OrderItems { get; set; }
     }
 }
