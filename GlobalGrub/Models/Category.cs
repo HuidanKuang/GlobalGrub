@@ -22,6 +22,7 @@ namespace GlobalGrub.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "And no empty strings!")]
 
         //2nd step: add a "name" property
+        [MaxLength(100)]
         public string Name { get; set; }
 
         //child ref
