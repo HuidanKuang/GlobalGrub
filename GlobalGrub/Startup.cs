@@ -47,6 +47,13 @@ namespace GlobalGrub
                     //read Google API Key Value from config section and set as options
                     options.ClientId = googleAuth["ClientId"];
                     options.ClientSecret = googleAuth["ClientSecret"];
+                })
+                .AddFacebook(options =>
+                {
+                    IConfigurationSection facebookAuth = Configuration.GetSection("Authentication:FaceBook");
+
+                    options.ClientId = facebookAuth["AppId"];
+                    options.ClientSecret = facebookAuth["AppSecret"];
                 });
                 
         }
