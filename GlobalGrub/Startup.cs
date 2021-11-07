@@ -33,8 +33,22 @@ namespace GlobalGrub
             services.AddDatabaseDeveloperPageExceptionFilter();
             //not require new account to be confirmed
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()//now enable Role Management for authorization - not on by default
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            //enable google auth
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    //access Google Auth section of appsetting.json
+                    IConfigurationSection googleAuth = Configuration.GetSection("Authentication:Google");
+
+                    //read Google API Key Value from config section and set as options
+                    options.ClientId = googleAuth["ClientId"];
+                    options.ClientSecret = googleAuth["ClientSecret"];
+                });
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
