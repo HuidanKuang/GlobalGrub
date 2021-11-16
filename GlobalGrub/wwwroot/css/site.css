@@ -84,3 +84,8 @@ body {
 .navbar-dark {
     background-color: #009688;
 }
+
+.input-small{
+    width: 75px;
+    margin-top:10px;
+}
