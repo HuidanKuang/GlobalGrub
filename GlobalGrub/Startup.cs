@@ -58,6 +58,9 @@ namespace GlobalGrub
 
             //session support
             services.AddSession();
+
+            //add dependency so controllers can read config values - used for Stripe keys in Shop
+            services.AddSingleton<IConfiguration>(Configuration);
                 
         }
 

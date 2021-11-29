@@ -27,6 +27,12 @@
                         </li>
                         <!-- To check for Authentication in a view -->
                         <!-- if the user log in, they will see the link -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+                            </li>
+                        }
                         @if (User.IsInRole("Administrator"))
                         {
                             <li class="nav-item">
