@@ -53,7 +53,7 @@ namespace GlobalGrub.Controllers
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name");
-            return View();
+            return View("Create");
         }
 
         // POST: Products/Create
@@ -112,16 +112,16 @@ namespace GlobalGrub.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var product = await _context.Products.FindAsync(id);
             if (product == null)
             {
-                return NotFound();
+                return View("404");
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", product.CategoryId);
-            return View(product);
+            return View("Edit",product);
         }
 
         // POST: Products/Edit/5
